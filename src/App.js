@@ -1,14 +1,16 @@
 import "./App.css";
-import ReactJson from "react-json-view";
 
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
+import ReactJson from "react-json-view";
+
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { BigTitle } from "./components/BigTitle";
 import { Center, LoadingOverlay, Text } from "@mantine/core";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import filterURL from "./util/filter_functions";
+
 import {
 	generateKeywordDensity,
 	generateNonIndexables,
@@ -119,6 +121,16 @@ function App() {
 		const res = await sendRequestToAPI(filteredURL);
 		let { ID, result } = res;
 		setTaskId(ID);
+	};
+
+	const json = {
+		string: "Lorem ipsum dolor sit amet",
+		integer: 42,
+		float: 114.514,
+		boolean: true,
+		null: null,
+		nan: NaN,
+		url: new URL("https://example.com"),
 	};
 
 	return (
