@@ -1,0 +1,12 @@
+deployments:
+  - name: default
+    script:
+      - name: Install Dependencies
+        command: |
+          # Run your custom npm install command here
+          npm install --legacy-peer-deps
+      - name: Build and Start
+        command: |
+          # Run any additional build or start commands here
+          npm run build
+          npm start
